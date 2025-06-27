@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.28)
 
 project(c-testing-and-mocking C)
 
-if(NOT CMAKE_C_COMPILER_ID STREQUAL "GNU")
-  message(FATAL_ERROR "Only GCC is supported at this moment")
+if(NOT CMAKE_C_COMPILER_ID MATCHES "Clang|GNU")
+  message(FATAL_ERROR "Only GCC and Clang are supported at this moment")
 endif()
 
 add_library(c-testing-and-mocking STATIC EXCLUDE_FROM_ALL

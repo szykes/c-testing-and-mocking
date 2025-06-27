@@ -29,6 +29,7 @@ typedef struct mock_call_st {
   struct mock_call_st *next;
 } mock_call_st;
 
+#ifndef __clang__
 inline static char *strdup(const char *s) {
   size_t size = strlen(s) + 1;
   char *p = (void*)malloc(size);
@@ -37,6 +38,7 @@ inline static char *strdup(const char *s) {
   }
   return p;
 }
+#endif
 
 #define mock_prepare_param(dest, data)		\
   dest = (void*)malloc(sizeof(data));		\
